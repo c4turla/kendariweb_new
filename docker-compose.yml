@@ -1,0 +1,35 @@
+name: kendariweb
+services:
+  database:
+    image: postgis/postgis:16-master
+    platform: linux/amd64
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DB_USER:-kendariweb}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-kendariweb}
+      POSTGRES_DB: ${DB_DATABASE:-kendariweb}
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', '${DB_USER:-kendariweb}', '-d', '${DB_DATABASE:-kendariweb}', '-h', 'localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_interval: 5s
+      start_period: 30s
+    ports:
+      - "5432:5432"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER:-kendariweb}:${DB_PASSWORD:-kendariweb}@database:5432/${DB_DATABASE:-kendariweb}
+      - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET:-super-secret-key-replace-me}
+      - BETTER_AUTH_URL=http://localhost:3000
+    depends_on:
+      database:
+        condition: service_healthy
+    restart: always
