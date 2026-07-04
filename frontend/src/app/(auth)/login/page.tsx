@@ -81,7 +81,7 @@ export default function LoginPage() {
                 <Input
                   type="email"
                   required
-                  placeholder="admin@kendariweb.com"
+                  placeholder="admin@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="pl-10 h-11 bg-[#161619] border-[#1f1f23] text-white focus-visible:border-blue-500 focus-visible:ring-blue-500/20 rounded-xl"
