@@ -1,8 +1,8 @@
 {
-    "api_url": "https://demo-samosir.kendariweb.web.id/api/v1",
-    "app_base_url": "https://demo-samosir.kendariweb.web.id",
+    "api_url": "https://v3.ppnsibolga.com/api/v1",
+    "app_base_url": "https://v3.ppnsibolga.com",
     "reverb_app_key": "jibd7mc5pv0mllkmefqf",
-    "reverb_host": "demo-samosir.kendariweb.web.id",
+    "reverb_host": "v3.ppnsibolga.com",
     "reverb_port": "443",
     "reverb_scheme": "https"
 }
