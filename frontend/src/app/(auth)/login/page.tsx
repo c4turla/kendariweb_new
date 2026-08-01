@@ -28,9 +28,9 @@ export default function LoginPage() {
         password,
         fetchOptions: {
           onSuccess: () => {
-             toast.success("Login berhasil");
-             router.push("/dashboard");
-             router.refresh();
+            toast.success("Login berhasil");
+            router.push("/dashboard");
+            router.refresh();
           }
         }
       });
@@ -60,7 +60,7 @@ export default function LoginPage() {
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
           </Link>
-          <h1 className="text-2xl font-bold text-white tracking-tight">Admin KendariWeb</h1>
+          <h1 className="text-2xl font-bold text-white tracking-tight">KendariWeb</h1>
           <p className="text-sm text-zinc-500 mt-2 text-center">
             Login untuk mengelola konten website
           </p>
